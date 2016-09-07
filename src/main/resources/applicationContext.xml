@@ -8,7 +8,6 @@
            http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
            http://www.springframework.org/schema/tx       http://www.springframework.org/schema/tx/spring-tx.xsd
        ">
-
 	<!-- 扫描注解 -->
 	<context:component-scan base-package="com.*" />
 	<!-- 当使用 <context:component-scan/> 后，就可以将 <context:annotation-config/> 移除了。 -->
@@ -23,7 +22,7 @@
 		</property>
 	</bean>
 
-	<!-- 配置数据源 C3P0连接池 -->
+	<!-- 配置数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass">
@@ -39,12 +38,14 @@
 			<value>${jdbc.password}</value>
 		</property>
 	</bean>
+
 	<!-- 定义实体管理器工厂 -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.muji.fruit.entity" />
-		<!-- 支持JPA与JDBC共享事务 -->
+		<!-- 扫描实体类 -->
+		<property name="packagesToScan" value="com.muji.*" />
+		<!-- 指定JPA持久化实现厂商类,支持JPA与JDBC共享事务 -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="true" />
@@ -60,6 +61,10 @@
 		</property>
 	</bean>
 
+	<!-- 定义sessionFactory成bean -->
+	<bean id="sessionFactory" factory-bean="entityManagerFactory"
+		factory-method="getSessionFactory" />
+
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
@@ -69,8 +74,8 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 
-	<!-- 配置Spring Data JPA扫描目录 -->
-	<jpa:repositories base-package="com.osws.dao"
+	<!--启用扫描并自动创建代理的功能 -->
+	<jpa:repositories base-package="com.muji.*"
 		entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager" />
-</beans>
+</beans>   
