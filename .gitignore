@@ -33,3 +33,6 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
+*.rar
+*.zip
