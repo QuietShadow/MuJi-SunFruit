@@ -36,3 +36,4 @@ proguard/
 
 *.rar
 *.zip
+/target/
