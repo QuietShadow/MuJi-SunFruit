@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * ÉÌÆ··Ö×éÊµÌå
+ * å•†å“åˆ†ç»„å®ä½“
  * @author CHW
  *
  */
@@ -13,12 +13,12 @@ import javax.persistence.Table;
 @Table(name="t_group")
 public class Group {
     /**
-     * Ö÷¼ü
+     * ä¸»é”®
      */
 	@Id
 	private String group_id;
 	/**
-	 * ·Ö×éÃû
+	 * åˆ†ç»„å
 	 */
 	private String group_name;
 	

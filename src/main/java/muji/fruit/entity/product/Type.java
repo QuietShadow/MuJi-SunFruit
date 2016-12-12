@@ -1,11 +1,11 @@
-package muji.fruit.entity.product;
+ï»¿package muji.fruit.entity.product;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * ÉÌÆ·ÀàĞÍÊµÌå
+ * å•†å“ç±»å‹å®ä½“
  * @author CHW
  *
  */
@@ -13,12 +13,12 @@ import javax.persistence.Table;
 @Table(name="t_type")
 public class Type {
 	/**
-	 * Ö÷¼ü
+	 * ä¸»é”®
 	 */
 	@Id
 	private String type_id;
 	/**
-	 * ÀàĞÍÃû
+	 * ç±»å‹å
 	 */
 	private String type_name;
 

@@ -1,11 +1,11 @@
-package muji.fruit.entity.product;
+锘縫ackage muji.fruit.entity.product;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * 商品单位
+ * 鍟嗗搧鍗曚綅
  * @author CHW
  *
  */
@@ -14,12 +14,12 @@ import javax.persistence.Table;
 public class Units {
 
 	/**
-	 * 主键
+	 * 涓婚敭
 	 */
 	@Id
 	private String units_id;
 	/**
-	 * 单位名称
+	 * 鍗曚綅鍚嶇О
 	 */
 	private String units_name;
 	public String getUnits_id() {

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 /**
- * ÉÌÆ·Í¼Æ¬ÊµÌå
+ * å•†å“å›¾ç‰‡å®ä½“
  * 
  * @author CHW
  *
@@ -19,16 +19,16 @@ import javax.persistence.Table;
 public class Img {
 
 	/**
-	 * Ö÷¼ü
+	 * ä¸»é”®
 	 */
 	@Id
 	private String img_id;
 	/**
-	 * Í¼Æ¬URL
+	 * å›¾ç‰‡URL
 	 */
 	private String img_url;
 	/**
-	 * ËùÊôÉÌÆ·ÊµÌåÓ³Éä
+	 * æ‰€å±å•†å“å®ä½“æ˜ å°„
 	 */
 	@ManyToOne(targetEntity=Product.class)
 	@JoinColumn(name="product_id",referencedColumnName="product_id",nullable=false)

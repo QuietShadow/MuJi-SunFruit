@@ -1,4 +1,4 @@
-package muji.fruit.entity.product;
+ï»¿package muji.fruit.entity.product;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * ÉÌÆ·ÊµÌå
+ * å•†å“å®ä½“
  * 
  * @author CHW
  *
@@ -21,51 +21,51 @@ import javax.persistence.Table;
 public class Product {
 
 	/**
-	 * Ö÷¼ü
+	 * ä¸»é”®
 	 */
 	@Id
 	private String product_id;
 	/**
-	 * ÉÌÆ·ÉÏÏÂ¼Ü×´Ì¬£¨0£ºÏÂ¼Ü£¬1£ºÉÏ¼Ü£©
+	 * å•†å“ä¸Šä¸‹æ¶çŠ¶æ€ï¼ˆ0ï¼šä¸‹æ¶ï¼Œ1ï¼šä¸Šæ¶ï¼‰
 	 */
 	private String status;
 	/**
-	 * ÉÌÆ··Ö×é
+	 * å•†å“åˆ†ç»„
 	 */
 	@OneToOne(targetEntity=Group.class)
 	@JoinColumn(name="group_id",referencedColumnName="group_id")
 	private Group group;
 	/**
-	 * ÉÌÆ·±àÂë
+	 * å•†å“ç¼–ç 
 	 */
 	private String product_no;
 	/**
-	 * ÉÌÆ··ÖÀà
+	 * å•†å“åˆ†ç±»
 	 */
 	@OneToOne(targetEntity=Type.class)
 	@JoinColumn(name="type_id",referencedColumnName="type_id")
 	private Type type;
 	/**
-	 * ÉÌÆ·Í¼Æ¬
+	 * å•†å“å›¾ç‰‡
 	 */
 	@OneToMany(targetEntity=Img.class,mappedBy="product")
 	private Set<Img> img=new HashSet<Img>();
 	/**
-	 * ÉÌÆ·¼Û¸ñ
+	 * å•†å“ä»·æ ¼
 	 */
 	private double price;
 	/**
-	 * ÉÌÆ·ÏúÊÛµ¥Î»
+	 * å•†å“é”€å”®å•ä½
 	 */
 	@OneToOne(targetEntity=Units.class)
 	@JoinColumn(name="units_id",referencedColumnName="units_id")
 	private Units units;
 	/**
-	 * ÉÌÆ·ÃèÊö
+	 * å•†å“æè¿°
 	 */
 	private String product_describe;
 	/**
-	 * ÉÌÆ·¿â´æ
+	 * å•†å“åº“å­˜
 	 */
 	private int inventory;
 
